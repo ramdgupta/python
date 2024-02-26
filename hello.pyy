@@ -1,0 +1,65 @@
+'''print("chai and code")'''
+def chai(n):
+    print(n)
+chai(" lemon tea")
+print('''Dictionary:''')
+'''
+- create dictionary
+- print dictionary
+- lenth dictionary
+- add new item in dictionary dic["key"] = "value"
+- pop item in dictionary 
+- pop item in dictionary
+- del item in dictionary del method remove from  reference 
+- make a copy & deep copy of dict 
+- nest dict 
+'''
+
+chai_types = {'Masala': "Spicy", "Ginger" : "Zesty", "Green tea": "Mild"}
+print(chai_types)
+print('''without method:''')
+print(chai_types["Masala"])
+print('''Get type:''')
+print(chai_types.get("Ginger"))
+print('''wrong key:''')
+print(chai_types.get("Gi"))
+
+print("for loop without key:")
+for chai in chai_types:
+    print(chai)
+print("for loop with key and value:")
+for chai in chai_types:
+    print(chai, chai_types[chai])
+print("for loop with key and value with item method :")
+for key, values in chai_types.items():
+    print(key, values)
+
+print("search item with if :")
+if "Masala" in chai_types:
+    print("I have \"Masal\" chai")
+print("add new value and key in dic :")
+chai_types["Earl Grey"] ="Citrus"
+print(chai_types)
+print("dicatinary lenth")
+print(len(chai_types))
+print("for pop need to provide key:")
+print(chai_types.pop("Ginger"))
+print(chai_types, len(chai_types))
+print("method popitem delete last key and value of dict:")
+print(chai_types.popitem())
+print(chai_types)
+print("Dealer chai")
+del chai_types["Masala"]
+print (chai_types, len(chai_types))
+print("copy variable ")
+chai_types_copy = chai_types.copy()
+print(chai_types_copy)
+tea_shop = {
+    "chai":{"Masala":"spicy", "Ginger": "Zesty"},
+    "Tea": {"Green": "Mild", "Black": "Strong"}
+}
+print("tea_Shop : ", tea_shop)
+print(tea_shop["chai"]["Masala"], tea_shop["Tea"]["Green"])
+print("Number game dictionary in key and value ")
+sq_num ={x:x**2 for x in range(6)}
+print(sq_num)
