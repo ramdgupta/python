@@ -74,7 +74,7 @@ Python project
     - we are not changing value we are updating reference 
     - python have garbage colletion which remove the unusable referece 
 
-# Python Data Type 
+# Python Comment
     - comment :# single line or ''' ''' multiline
 # Python Data Type
     - Number: 1234, 3.1444, 3+4j, 0b111, Decimal(), Fraction()
@@ -87,18 +87,149 @@ Python project
         - list have method
     - Tupel : (1, 'spam' 4, 'U'), tuple('spam'), namedtuple 
         - Tuple we use parenthesis seprate with comma 
-    - Dictionary : {'food': 'spam', 'taste':'yum'}, dict (hours=10)
+    - Dictionary food= {'food': 'spam', 'taste':'yum'}, dict (hours=10)
         - Dictionary we use curly bases  it's have key and value
         - dict is use for defining dictinary
+        - in dict value not start from 0 index
+        - in dict always value have an key
+        - dictionary keys enclose in '' or "" because they are string
+        -  to access dictionary value need to do call key food["test"]
+
     - Set :set('abc'), {'a', 'b', 'c'}
         - Set always keep unique value 
         - Set don't show if there is duplicate value
+        -
     - File : open('eggs.txt'), open(r'C:\jam.bin', 'wb')
     - Boolean : True , False
     - None : None
     - Functions, Modules, Classes 
     - Advance : Decorators, Generators, Iterators, MetaPrograming
-# 
+
+# Internal working of python
+    - if we make a variable score = 10
+    - and a_score = score 
+    - At reference 10 associated with two variable 
+    - now you have assign a varialbe id =5 
+    - Suppose id use is finish then you remove the id  
+    - now reference 5 have no use 
+    - python do not keep unused reference internly
+    - Internaly python working in this case is differently
+    - Because python compilar treat differently number and string
+    - there is any method where reference counted
+    - But you can't see if you want then you want manipulate so many thing
+    - python use to garbase collection 
+    - but it's not remove 5 immidiately
+    - import sys and sys.getrefcount() it's give constant number output
+    - this is method which tell you refrence count 
+    - sys.getrefcount('ram') //4294967295
+    - intenaly compliter loop run and give this number repeteadly
+    - there is no way to reference count
+    - you know the reference count exist but no way you proof with print
+    - supoose i have a variable a =3
+    - we know behind the seen 3 reference assign to a
+    - Behind the seen variable don't have data type while memory value which is called reference have data type
+    - now a ="chaiandcode"
+    - now 3 reference remove now a have assign to a new reference "chaiandcode"
+    - now there is 3 no use but python not collect this 3 in garbase collection imidiataly take some time to do that but you can do it forcefully
+    - python think may be in case of number and string immidiatly call previous reference
+    - a= 5 and b =2 now a = a+2 now a  have the value 7 
+    - Now a have  new reference 7 , memory reference is 5 is free with variable now it's ready for garbase collection
+    -in this case a = a+2 , first happen calculation  
+    - myListone =[1,2,3] and myListTwo = myListone
+    - now both are have same memory reference internly
+    - myListOne == myListTwo : True :[1,2,3]
+    -myListOne ="Chia"
+    -myListOne == myListTwo : False
+    - myListOne : Chai
+    - myListTwo = [1,2,3]
+    - again assign myListOne=[1,2,3]
+    -myListOne == myListTwo : True
+    - myListOne is myListTwo: False
+    -myListOne[0]=33
+    -myListOne : [33,2,3]
+    -myListTwo :[1,2,3]
+    - now see reference l1 = [1,2,3]
+    - l2 = l1
+    - l1==l2 : True
+    -l1[0]=44
+    -l1  : [44,2,3]
+    -l2  : [44,2,3]
+    -l1 is l2 : True
+    -p1 = [1,2,3]
+    -p2=p1
+    -p2=[1,2,3]
+    -p1[0]=55
+    -p1:[55,2,3]
+    -p2:[1,2,3]
+    -These need to understand mutable and unmutable 
+    -slicing List  h1 =[1,2,3] 
+    -h2=h1[:] when you do slicing you have made a copy , copy , deepcopy
+    -h1 : [1,2,3]
+    -h2 :[1,2,3]
+    -h1[0]=55
+    -h1 : [55,2,3]
+    -h2 :[1,2,3]
+    - import copy h2 = copy.copy(h1)
+    -h2 = copy.deepcopy(h1) [to copy nested lists]
+
+
+
+
+
+    
+# Revison
+    - 12 + 12 o/p :24
+    - 2.5 + 5 o/p: 12.5 - if a single value in decimal then result should be decimal
+    - python support high value
+    - 2 ** 2 o/p : power - ** use for calulate power
+    -Suppose you calculate any digit power of hundred number then python shine because it's handle a big ammount of number like: 2** 14284
+    - username ="chaiaurcode"
+    - len(username) :11
+    - username[0] : 'c' string also treat as list 
+    - username[0] = 'A'
+    - error: TypeError : 'str' object does not support item assignment 
+    - string is immutable so we unable to replace value on prticular index
+    - we can do these thing in List but not string
+    - username[0] : c
+    - username[-1]: 'e'
+    - username[-2] : 'd'
+    - username[1:3]: 'ha'
+    - when we talk about imutable and mutable then you need to think object and memory so you need to know concept of behind the seen.
+    - 
+# Numbers in depth in python
+    - Number is not single object it's a group of object
+    - Number is strong game of Python
+    - String also strong in python but no match of Number
+    - for Number python have best library Numphy
+    - what are the number and type of number
+    - python carry decimle, complex , boolean , Set also treat as number in internaly
+    - under the hood python compiler is writen in c++
+    - First we talk about expression
+    - +, -, /(give decimal resul),%,//(for int result),**(power)
+    - use pranthesis for operation that good way of writing code
+    - x + (y*z)
+    - always keep in mind in operation keep all data type are same in inital 
+    - don't use mismatch data type in project level it's create a big different and not the good way of writing
+    code
+    - operator overloading : "chai" + "code" o/p: chaicode
+    -x = 1 x=2 x=3 print(x,y,z) : (1,2,3) when we print comma seprated variable means we get output in tuple
+    - x+1, y*2 : (2,6)
+    - to calculate power ** :2**2 : 4
+    - result =1/3.2 output come 0.3125 then you need to decide to what decimal precision value you want to take
+    - repr(s) will give a representation that includes quotes and escape sequences if present.
+    - str(s) will give a clean representation without escape sequences.
+    - print(s) will print the string as it is, without quotes or escape sequences.
+        s = "Hello\nWorld!"
+        print(repr(s))  # Output: 'Hello\nWorld!'
+        print(str(s))   # Output: Hello
+                #         World!
+        print(s)        # Output: Hello
+                #         World!
+    - 
+
+
+
+
 
 
 
